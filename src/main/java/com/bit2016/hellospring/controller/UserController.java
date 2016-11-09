@@ -1,6 +1,7 @@
 package com.bit2016.hellospring.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,10 +16,15 @@ public class UserController {
 		return "/WEB-INF/views/joinform.jsp";
 	}
 	
-	@ResponseBody
 	@RequestMapping( value="/join", method=RequestMethod.POST )
-	public String join(){
-		return "join";
+	public String join( @ModelAttribute UserVo vo ){
+		System.out.println( vo );
+		return "redirect:/user/joinsuccess";
 	}
 	
+	@ResponseBody
+	@RequestMapping( "/joinsuccess" )
+	public String joinSuccess() {
+		return "joinSuccess";
+	}
 }

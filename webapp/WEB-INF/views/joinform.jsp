@@ -9,6 +9,10 @@
 <body>
 	<form action="/hellospring/user/join" method="post">
 		<input type="text" name="name"/>
+		<input type="text" name="email"/>
+		<input type="text" name="password"/>
+		<input type="text" name="gender"/>
+
 		<input type="submit" value="가입"/>
 	</form>
 </body>
